@@ -1,0 +1,58 @@
+
+.pageContainer{
+  display:flex;
+  border: 1px solid black;
+}
+.leftSide{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.instructions{
+  border: 1px solid black;
+  line-height: 25px;
+}
+.images{
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+#img1 img{
+  border: 1px solid black;
+  margin:auto;
+}
+#img2 img{
+  border: 1px solid black;
+  margin: auto;
+}
+#img3 img{
+  border: 1px solid black;
+  margin: auto;
+}
+
+.graphBox{
+  border: 1px solid black;
+}
+.graph{
+  border: 1px solid black;
+}
+
+.rightSide{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  border: 1px solid black;
+  width:100%;
+}
+
+  .resultBox{
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  border: 1px solid black;
+}
+.results{
+  border: 1px solid black;
+
+}
