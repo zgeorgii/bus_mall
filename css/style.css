@@ -2,6 +2,7 @@
 .pageContainer{
   display:flex;
   border: 1px solid black;
+  width: 100%;
 }
 .leftSide{
   display: flex;
@@ -15,18 +16,31 @@
 }
 .images{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-content: center;
   border: 1px solid black;
 }
-#img1 img{
+.imgLeftBox{
+  display:flex;
+  justify-content: space-between;
+}
+#image1 img{
   border: 1px solid black;
   margin:auto;
 }
-#img2 img{
+.imgCenterBox{
+  display:flex;
+  justify-content: space-between;
+}
+#image2 img{
   border: 1px solid black;
   margin: auto;
 }
-#img3 img{
+.imgRightBox{
+  display:flex;
+  justify-content: space-between;
+}
+#image3 img{
   border: 1px solid black;
   margin: auto;
 }
