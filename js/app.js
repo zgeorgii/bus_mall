@@ -1,6 +1,9 @@
 function Item(itemName, filePath){
   this.itemName = itemName;
   this.filePath = filePath;
+  this.clicks = 0;
+  this.clickNum = 0;
+  // this.percentClicked = 0;
 };
 
 var items = [new Item('bag', '../img/bag.jpg'),
@@ -25,7 +28,7 @@ var img3 = document.getElementById('image3');
 
  function displayImages(){
     image[0] = Math.floor(Math.random() * (items.length));
-    img1.src = items[image[0]].filePath;
+  img1.src = items[image[0]].filePath;
 
     image[1] = Math.floor(Math.random() * items.length);
   while (image[1] === image[0])  {
@@ -44,6 +47,36 @@ var img3 = document.getElementById('image3');
   console.log(image[2]);
 }
 displayImages();
+
+img1.setAttribute('src', items[image[0]].filePath);
+img2.setAttribute('src', items[image[1]].filePath);
+img3.setAttribute('src', items[image[2]].filePath);
+img1.addEventListener('click', click);
+img2.addEventListener('click', click);
+img3.addEventListener('click', click);
+
+var totalClicks = 0;
+
+function click(event) {
+  items[image[0]].clickNum += 1;
+  items[image[1]].clickNum += 1;
+  items[image[2]].clickNum += 1;
+  totalClicks += 1;
+  if (totalClicks === 15) {
+    resButton.removeAttribute('hidden');
+  }
+  displayImages();
+}
+
+var resButton = document.getElementById('result');
+var resButtonClicks = 0;
+resButton.addEventListener('click', handleResultButtonClick);
+
+function handleResultButtonClick(event) {
+  resButtonClicks += 1;
+  var results = document.getElementById('resultsBox');
+  results.removeAttribute('hidden');
+}
 
 
 

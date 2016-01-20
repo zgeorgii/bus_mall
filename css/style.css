@@ -60,7 +60,7 @@
   width:100%;
 }
 
-  .resultBox{
+  #resultBox{
   display: flex;
   flex-direction: column;
   align-content: stretch;
