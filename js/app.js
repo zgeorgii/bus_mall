@@ -1,11 +1,9 @@
 function Item(itemName, filePath){
   this.itemName = itemName;
   this.filePath = filePath;
-
 };
 
-var items = [
-  new Item('bag', '../img/bag.jpg'),
+var items = [new Item('bag', '../img/bag.jpg'),
   new Item('banana', '../img/banana.jpg'),
   new Item('boots', '../img/boots.jpg'),
   new Item('chair', '../img/chair.jpg'),
@@ -18,8 +16,7 @@ var items = [
   new Item('unicorn','../img/unicorn.jpg'),
   new Item('usb', '../img/usb.gif'),
   new Item('water', '../img/water-can.jpg'),
-  new Item('wine', '../img/wine-glass.jpg'),
-];
+  new Item('wine', '../img/wine-glass.jpg'),];
 
 var image = [];
 var img1 = document.getElementById('image1');
