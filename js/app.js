@@ -3,6 +3,7 @@ function Item(itemName, filePath){
   this.filePath = filePath;
   this.clicks = 0;
   this.clickCount = 0;
+  this.originalIndex = originalIndex++;
 };
 
 var items = [new Item('bag', '../img/bag.jpg'),
@@ -76,16 +77,6 @@ function handleClick(event) {
   makeClicksArray();
 }
 
-var resButton = document.getElementById('result');
-var resButtonClicks = 0;
-resButton.addEventListener('click', resClick);
-
-function resClick(event) {
-  resButtonClicks += 1;
-  var results = document.getElementById('resultsBox');
-  results.removeAttribute('hidden');
-}
-
 var clicksChartArray = [];
 function makeClicksArray(){
   clicksChartArray = [];
@@ -94,7 +85,59 @@ function makeClicksArray(){
     }
 }
 
+var data = {
+    labels: [],
+    datasets: [
+        {
+            label: "Times Item is Shown",
+            fillColor: "#ff7070",
+            strokeColor: "#ff7070",
+            highlightFill: "#ff7070",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: []
+        },
+        {
+            label: "Times Item is Clicked",
+            fillColor: "#6b98e5",
+            strokeColor: "#6b98e5",
+            highlightFill: "#6b98e5",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: []
+        }
+    ]
+};
 
-// var data = {
-//     labels:[];
-// }
+function newChartData(){
+  for (var d = 0; d < items.length; d++){
+    data.labels.push('0');
+    data.datasets[0].data.push('0');
+    data.datasets[1].data.push('0');
+  }
+}
+newChartData();
+var chartCanvas = document.getElementById('chartCanvas').getContext('2d');
+var chartMe = new Chart(chartCanvas).Bar(data);
+var clearsLS = document.getElementById('lsClear');
+localStorage.clear();
+
+var resButton = document.getElementById('result');
+var resButtonClicks = 0;
+resButton.addEventListener('click', resClick);
+
+var originalIndex = 0;
+
+function resClick(event) {
+  resButtonClicks += 1;
+  var results = document.getElementById('resultsBox');
+  results.removeAttribute('hidden');
+
+  items.sort(function (a, b) {return b.clicks - a.clicks;});
+    for(var i = 0; i < items.length; i++)
+    {
+      data.labels[i] = items[i].itemName;
+      chartMe.datasets[0].bars[i].value = items[i].clicks;
+      chartMe.datasets[1].bars[i].value = items[i].clickCount;
+    }
+    chartMe.update();
+    items.sort(function (a, b) {return a.originalIndex - b.originalIndex;});
+  }
