@@ -2,51 +2,61 @@
 .pageContainer{
   display:flex;
   flex-flow: column;
-  border: 1px solid black;
-}
-
+  border: 4px ridge #bfdfff;
+  border-radius: 8px;
+  background-image: url(../img/c1bf4bcf.png);
 }
 .instructions{
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 20px;
   border: 1px solid black;
-  line-height: 25px;
+  line-height: 35px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .images{
   display: flex;
   justify-content: space-around;
   border: 1px solid black;
+  background-color:#def;
+  background-image: radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%),
+  radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%);
+  background-size:80px 80px;
+  background-position:0 0, 40px 40px;
 }
 .imgLeftBox{
   display:flex;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
+  border: 4px ridge #bfdfff;
+  border-radius: 8px;
+  justify-content: center;
+    background-color: #ffffff;
 }
 #image1 img{
-  width: 150px;
-  height: 150px;
-  border: 1px solid black;
-  margin:auto;
 }
 .imgCenterBox{
   display:flex;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
+  border: 4px ridge #bfdfff;
+  border-radius: 8px;
+  justify-content: center;
+    background-color: #ffffff;
 }
 #image2 img{
-  width: 150px;
-  height: 150px;
-  border: 1px solid black;
-  margin: auto;
 }
 .imgRightBox{
   display:flex;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
+  border: 4px ridge #bfdfff;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: #ffffff;
 }
 #image3 img{
-  width: 150px;
-  height: 150px;
-  border: 1px solid black;
-  margin: auto;
 }
 
 .graphBox{
