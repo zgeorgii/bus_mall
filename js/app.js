@@ -2,8 +2,7 @@ function Item(itemName, filePath){
   this.itemName = itemName;
   this.filePath = filePath;
   this.clicks = 0;
-  this.clickNum = 0;
-  // this.percentClicked = 0;
+  this.clickCount = 0;
 };
 
 var items = [new Item('bag', '../img/bag.jpg'),
@@ -27,7 +26,7 @@ var img2 = document.getElementById('image2');
 var img3 = document.getElementById('image3');
 
  function displayImages(){
-    image[0] = Math.floor(Math.random() * (items.length));
+    image[0] = Math.floor(Math.random() * items.length);
   img1.src = items[image[0]].filePath;
 
     image[1] = Math.floor(Math.random() * items.length);
@@ -41,7 +40,6 @@ var img3 = document.getElementById('image3');
     image[2] = Math.floor(Math.random() * items.length);
   }
   img3.src = items[image[2]].filePath;
-
   console.log(image[0]);
   console.log(image[1]);
   console.log(image[2]);
@@ -51,74 +49,52 @@ displayImages();
 img1.setAttribute('src', items[image[0]].filePath);
 img2.setAttribute('src', items[image[1]].filePath);
 img3.setAttribute('src', items[image[2]].filePath);
-img1.addEventListener('click', click);
-img2.addEventListener('click', click);
-img3.addEventListener('click', click);
+img1.addEventListener('click', handleClick);
+img2.addEventListener('click', handleClick);
+img3.addEventListener('click', handleClick);
 
 var totalClicks = 0;
 
-function click(event) {
-  items[image[0]].clickNum += 1;
-  items[image[1]].clickNum += 1;
-  items[image[2]].clickNum += 1;
+function handleClick(event) {
+  if (event.path[0].id === 'image1'){
+    items[image[0]].clicks += 1;
+  }
+  else if(event.path[0].id === 'image2'){
+    items[image[1]].clicks += 1;
+  }
+  else{
+    items[image[2]].clicks += 1;
+  }
+  items[image[0]].clickCount += 1;
+  items[image[1]].clickCount += 1;
+  items[image[2]].clickCount += 1;
   totalClicks += 1;
-  if (totalClicks === 15) {
+  if (totalClicks === 3) {
     resButton.removeAttribute('hidden');
   }
   displayImages();
+  makeClicksArray();
 }
 
 var resButton = document.getElementById('result');
 var resButtonClicks = 0;
-resButton.addEventListener('click', handleResultButtonClick);
+resButton.addEventListener('click', resClick);
 
-function handleResultButtonClick(event) {
+function resClick(event) {
   resButtonClicks += 1;
   var results = document.getElementById('resultsBox');
   results.removeAttribute('hidden');
 }
 
+var clicksChartArray = [];
+function makeClicksArray(){
+  clicksChartArray = [];
+    for (var i = 0; i < items.length; i++){
+      clicksChartArray.push(items[i].clickCount)
+    }
+}
 
 
- //    image[1] = Math.floor(Math.random() * (items.length));
- //    document.getElementById('image2').src = this.filePath[randImg];
- //    return true;
- //  }
- //
- //    image[2] = Math.floor(Math.random() * (items.length));
- //    document.getElementById('image3').src = this.filePath[randImg];
- //    return true;
- //  }
- //
- //  Item.prototype.render = function(){
- //    this.displayLeft();
- //    this.displayCenter();
- //    this.displayRight();
- //  }
- //
- // for(i = 0; i < items.length; i++) {
- //
- // }
-
-
-
-
-
-// var usedImg = {};
-// var imgCount = 0;
-//
-// function displayImg(){
-//   var image = Math.floor(Math.random() * (images.length));
-//   if(!usedImg[image]){
-//     document.image.src = images[image];
-//     usedImg[image] = true;
-//     imgCount++;
-//     if (imgCount === images.length){
-//       imgCount = 0;
-//       usedImg = {};
-//     }
-//   }
-//     else {
-//       displayImg();
-//     }
-//   }
+// var data = {
+//     labels:[];
+// }
