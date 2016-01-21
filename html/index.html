@@ -6,36 +6,29 @@
 </head>
   <body>
     <div class="pageContainer">
-      <div class="leftSide">
         <div class="instructions">
           <h3>Instructions:</h3>
           <p>You will be completeting a survey to provide Bus Mall with information on the popularity of their new items. Each survey will consist of 15 choices of 3 pictures of the new products. Please click on the picture that you would most likely purchase. Your answers will be stored, and the total results of the survey will be availible to you once you have finished. Please click on "Show Results" if you choose to see the results of everyone who has taken the survey. Thank you for your time and assistance with our new products!
+        </div>
           <div class="images">
-            <p>Images</p>
             <div class="imgLeftBox">
-                <img id="image1" src="" onClick="return displayImages()">
+                <img id="image1" src="">
             </div>
             <div class="imgCenterBox">
-                <img id="image2" src="" onClick="return displayImages()" >
+                <img id="image2" src="">
             </div>
             <div class="imgRightBox">
-                <img id="image3" src="" onClick="return displayImages()"
+                <img id="image3" src="">
             </div>
           </div>
-            <div class="graphBox">
-              <p>Graph</p>
-              <div class="graph">
-              </div>
+          <div class="graphBox">
+            <button id="result" hidden="true">Show Results</button>
+            <div id="resultsBox" hidden="true">
+              <p>Results</p>
+            </div>
+            <div class="graph">
             </div>
           </div>
-        </div>
-      <div class="rightSide">
-        <div class="resultBox">
-          <p>Results</p>
-          <div class="results">
-          </div>
-        </div>
-      </div>
     </div>
   <script src="../js/app.js"></script>
   </body>

@@ -1,14 +1,10 @@
 
 .pageContainer{
   display:flex;
+  flex-flow: column;
   border: 1px solid black;
-  width: 100%;
 }
-.leftSide{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid black;
+
 }
 .instructions{
   border: 1px solid black;
@@ -16,57 +12,55 @@
 }
 .images{
   display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-around;
   border: 1px solid black;
 }
 .imgLeftBox{
   display:flex;
-  justify-content: space-between;
+  width: 150px;
+  height: 150px;
 }
 #image1 img{
+  width: 150px;
+  height: 150px;
   border: 1px solid black;
   margin:auto;
 }
 .imgCenterBox{
   display:flex;
-  justify-content: space-between;
+  width: 150px;
+  height: 150px;
 }
 #image2 img{
+  width: 150px;
+  height: 150px;
   border: 1px solid black;
   margin: auto;
 }
 .imgRightBox{
   display:flex;
-  justify-content: space-between;
+  width: 150px;
+  height: 150px;
 }
 #image3 img{
+  width: 150px;
+  height: 150px;
   border: 1px solid black;
   margin: auto;
 }
 
 .graphBox{
+  display:flex;
+  flex-flow: column;
   border: 1px solid black;
 }
 .graph{
   border: 1px solid black;
 }
 
-.rightSide{
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  border: 1px solid black;
-  width:100%;
-}
-
-  .resultBox{
+  #resultBox{
   display: flex;
   flex-direction: column;
   align-content: stretch;
   border: 1px solid black;
-}
-.results{
-  border: 1px solid black;
-
 }
