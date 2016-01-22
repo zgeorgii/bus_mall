@@ -5,8 +5,12 @@ function Item(itemName, filePath){
   this.clickCount = 0;
   this.originalIndex = originalIndex++;
 };
-
-var items = [new Item('bag', '../img/bag.jpg'),
+if (localStorage.getItem('totalClicks')){
+  var items = JSON.parse(localStorage.getItem('itemsArray'));
+  console.log('items array is');
+  console.log(items);
+} else {
+  var items = [new Item('bag', '../img/bag.jpg'),
   new Item('banana', '../img/banana.jpg'),
   new Item('boots', '../img/boots.jpg'),
   new Item('chair', '../img/chair.jpg'),
@@ -20,6 +24,7 @@ var items = [new Item('bag', '../img/bag.jpg'),
   new Item('usb', '../img/usb.gif'),
   new Item('water', '../img/water-can.jpg'),
   new Item('wine', '../img/wine-glass.jpg'),];
+}
 
 var image = [];
 var img1 = document.getElementById('image1');
@@ -54,7 +59,13 @@ img1.addEventListener('click', handleClick);
 img2.addEventListener('click', handleClick);
 img3.addEventListener('click', handleClick);
 
-var totalClicks = 0;
+if (localStorage.getItem('totalClicks')){
+  var totalClicks = +localStorage.getItem('totalClicks');
+  console.log('totalClicks is ');
+  console.log(totalClicks);
+} else {
+  var totalClicks = 0;
+}
 
 function handleClick(event) {
   if (event.path[0].id === 'image1'){
@@ -75,6 +86,8 @@ function handleClick(event) {
   }
   displayImages();
   makeClicksArray();
+  localStorage.setItem('itemsArray', JSON.stringify(items));
+  localStorage.setItem('totalClicks', totalClicks);
 }
 
 var clicksChartArray = [];
@@ -118,7 +131,7 @@ newChartData();
 var chartCanvas = document.getElementById('chartCanvas').getContext('2d');
 var chartMe = new Chart(chartCanvas).Bar(data);
 var clearsLS = document.getElementById('lsClear');
-localStorage.clear();
+
 
 var resButton = document.getElementById('result');
 var resButtonClicks = 0;
@@ -141,3 +154,11 @@ function resClick(event) {
     chartMe.update();
     items.sort(function (a, b) {return a.originalIndex - b.originalIndex;});
   }
+
+
+localStorage.setItem('num', 3);
+function clearLS(){
+  localStorage.clear();
+}
+clearButton = document.getElementById('clearLS');
+clearButton.addEventListener('click', clearLS);
